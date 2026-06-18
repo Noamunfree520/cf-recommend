@@ -98,7 +98,7 @@ cf config max-rating 1700
 
 **Proficiency:** Aggregated per-problem (retries don't distort rates). A topic needs ≥3 attempted problems to be reliable; below 70% is weak.
 
-**Recommendation Score:**
+**Recommendation Score:** Each unsolved problem receives a score between 0 and 1:
 ```
 0.40 × topic_weakness + 0.30 × rating_fit + 0.20 × popularity + 0.10 × variety
 ```
