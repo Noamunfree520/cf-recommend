@@ -36,7 +36,7 @@ live in the terminal and want *personalised, data-driven* practice.
 -  **Local-first** — cached in SQLite, instant, works offline.
 -  **Zero-friction install** — prebuilt binary via npm.
 
-## 🎬 Demo
+##  Demo
 
 ```text
 $ cf analyze
